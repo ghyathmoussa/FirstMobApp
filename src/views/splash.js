@@ -1,21 +1,22 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { observer } from 'mobx-react';
-import codePush from 'react-native-code-push';
-
+import {splashS as S} from './style';
 import Resim from '../components/Resim';
+import phoneH from '../helps/phoneH';
+import splashC from '../controls/splashC';
 
 class Splash extends React.Component {
-    componentDidMount = spl.cDMount;
-    componentDidUpdate = C.cDUpdate;
-    componentWillUnmount = C.cWUnmount;
+    componentDidMount = splashC.cDMount;
+    componentDidUpdate = splashC.cDUpdate;
+    componentWillUnmount = splashC.cWUnmount;
 
-    guncelle() {
-        codePush.sync({ installMode: codePush.InstallMode.IMMEDIATE });
-    }
+    // guncelle() {
+    //     codePush.sync({ installMode: codePush.InstallMode.IMMEDIATE });
+    // }
 
     render() {
-        const durum = C.durum;
+        const durum = splashC.durum;
 
         let logoH;
 
@@ -30,17 +31,17 @@ class Splash extends React.Component {
                 style={[
                     S.K,
                     durum === 3 && S.K2,
-                    (durum === 1 || durum === 2) && tlfnH.klavye.durum && { justifyContent: 'flex-end' }
+                    (durum === 1 || durum === 2) && phoneH.klavye.durum && { justifyContent: 'flex-end' }
                 ]}
             >
-                <TouchableOpacity onPress={() => this.guncelle()}>
+                <TouchableOpacity>
                     <Resim
                         source={require('../../assets/logo/logo.png')}
-                        height={tlfnH.W(logoH)}
+                        height={phoneH.W(logoH)}
                     />
                 </TouchableOpacity>
 
-                {(durum === 1 || durum === 2) && <Oturum />}
+                {(durum === 1 || durum === 2) && <LogIn />}
             </View>
         );
     }
