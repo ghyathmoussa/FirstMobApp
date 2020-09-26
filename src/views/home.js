@@ -1,11 +1,22 @@
 import React from 'react';
-import {ScreenRect,Text,View} from 'react-native';
-import {observer} from 'mobx-react';
+import { Text, View } from 'react-native';
+import Resim from '../components/Resim'
+import phoneH from '../helps/phoneH';
+class home extends React.Component {
 
-class Home extends React.Component{
+    render() {
+        return (
 
-    
+            <View>
+                <Resim
+                 source={require('../../assets/sub_logo.png')}
+                 height={phoneH.W(60)}
+                 />
+            </View>
+
+        );
+    }
 
 }
 
-export default observer(Home);
+export default home;
