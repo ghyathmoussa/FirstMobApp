@@ -12,7 +12,7 @@ class App extends React.Component {
     navigasyon() {
         return (
             <NavigationContainer>
-                <Stack.Navigator screenOptions={{ headerShowen: false }}>
+                <Stack.Navigator screenOptions={{ headerShown: false }}>
                     <Stack.Screen name={'Home'} component={home} />
                 </Stack.Navigator>
             </NavigationContainer>
