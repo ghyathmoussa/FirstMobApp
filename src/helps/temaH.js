@@ -2,9 +2,9 @@ import { observable, action, decorate } from 'mobx';
 
 class temaH {
     renkler = {
-        r1: '#e89d43ff',
-        r2: '#0d1030ff',
-        r3: '#454a6dff',
+        r1: '#fff',
+        r2: '#F30C0C',
+        r3: '#000000',
     };
 
     notRenkleri = {
