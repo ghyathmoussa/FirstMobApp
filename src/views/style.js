@@ -33,5 +33,24 @@ export const homePageS = StyleSheet.create({
         textAlign:'right',
         marginTop:phoneH.W(2)
     },
-
+    safArea:{
+        marginTop:phoneH.H(2),
+    },
+    companiesC:{
+        width:phoneH.w,
+    },
+    company:{
+        padding:phoneH.W(4),
+        backgroundColor:temaH.renkler.r2,
+        marginBottom:phoneH.W(2),
+        flexDirection:'row'
+    },
+    image:{
+        width:phoneH.W(20),
+        height:phoneH.H(10),
+        flexDirection:'row'
+    },
+    companyTxt:{
+        marginLeft:phoneH.W(3)
+    },
 });

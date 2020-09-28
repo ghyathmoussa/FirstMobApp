@@ -1,10 +1,11 @@
 import { observer } from 'mobx-react';
 import React from 'react';
-import { Text, View, SafeAreaView, ScrollView } from 'react-native';
+import { Text, View, SafeAreaView, ScrollView, Image, TouchableOpacity } from 'react-native';
 import Resim from '../components/Resim'
 import homeC from '../controls/homeC';
 import phoneH from '../helps/phoneH';
-import { homePageS } from './style'
+import { homePageS } from './style';
+
 class home extends React.Component {
 
     componentDidMount = homeC.cDMount; //app starting 
@@ -22,13 +23,47 @@ class home extends React.Component {
         );
     }
 
+    companies() {
+        return (
+
+            <SafeAreaView style={homePageS.safArea}>
+                <ScrollView>
+                    <View style={homePageS.companiesC}>
+                        {this.company()}
+                        {this.company()}
+                        {this.company()}
+                        {this.company()}
+
+                    </View>
+                </ScrollView>
+            </SafeAreaView>
+        );
+    }
+
+    company() {
+        return (
+            <View style={homePageS.company}>
+                <TouchableOpacity>
+                    <Image
+                        style={homePageS.image}
+                        source={require('../../assets/20200111_174739.jpg')}
+                        width={phoneH.W(20)}
+                        height={phoneH.H(20)}
+                    />
+                </TouchableOpacity>
+                <Text style={homePageS.companyTxt}>lorNisi incididunt in occaecat officia esse labore ullamco sint dolore.</Text>
+            </View>
+        );
+    }
+
     render() {
         const sa = homeC.splashActive;
         return (
             <View style={[homePageS.C, sa && homePageS.C2]}>
 
-                {this.topArea()}
+                {!sa && this.topArea()}
 
+                {!sa && this.companies()}
                 <View style={!sa && homePageS.logoC}>
                     <Resim
                         source={require('../../assets/sub_logo.png')}
