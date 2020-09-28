@@ -15,8 +15,8 @@ class phoneH {
     android = Platform.OS === 'android';
     ios = Platform.OS === 'ios';
 
-    sbh = () => getStatusBarHeight();
-    sbhi = () => getStatusBarHeight(true);
+    sbh = getStatusBarHeight(); //status bar for android 
+    sbhi = getStatusBarHeight(true);// status bar for ios
 
 
     klavye = { durum: false, h: 0 };
@@ -38,8 +38,8 @@ decorate(
         android: observable,
         ios: observable,
 
-        sbh: action,
-        sbhi: action,
+        sbh: observable,
+        sbhi: observable,
 
         klavye: observable,
         klavyeAcildi: action,

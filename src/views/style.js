@@ -30,8 +30,8 @@ export const homePageS = StyleSheet.create({
     topTxt:{
         fontWeight:'bold',
         fontSize:16,
-        textAlign:'right'
-
+        textAlign:'right',
+        marginTop:phoneH.W(2)
     },
 
 });

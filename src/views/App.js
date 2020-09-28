@@ -6,6 +6,7 @@ import { observer } from 'mobx-react';
 import home from './home';
 import temaH from '../helps/temaH';
 import homeC from '../controls/homeC';
+import phoneH from '../helps/phoneH';
 
 const Stack = createStackNavigator();
 
@@ -27,6 +28,14 @@ class App extends React.Component {
                 <StatusBar
                     backgroundColor={homeC.splashActive ? 'transparent' : temaH.renkler.r2}
                     barStyle={'dark-content'} />
+                
+                <View 
+                style={
+                    {backgroundColor:temaH.renkler.r2,
+                    height:homeC.splashActive && phoneH.ios ? 0 : phoneH.sbhi
+                    }
+                    } />
+
                 {this.navigasyon()}
             </>
         );
