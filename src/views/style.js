@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import phoneH from '../helps/phoneH';
+import temaH from '../helps/temaH';
 
 // C : Container
 //SC : SubContainer
@@ -9,7 +10,6 @@ import phoneH from '../helps/phoneH';
 export const homePageS = StyleSheet.create({
     C:{
         flex:1,
-        borderWidth:2,
         borderColor:'red',
     },
     C2:{
@@ -17,16 +17,21 @@ export const homePageS = StyleSheet.create({
         alignItems:'center'
     },
     logoC:{
-        borderWidth:1,
         position:'absolute',
         left:phoneH.W(2),
         top:phoneH.H(2),
+
     },
     topArea:{
-        height:200,
+        minHeight:phoneH.H(20),
         width:phoneH.w,
-        borderWidth:1,
-        borderColor:'blue'
-    }
+        backgroundColor:temaH.renkler.r1,
+    },
+    topTxt:{
+        fontWeight:'bold',
+        fontSize:16,
+        textAlign:'right'
+
+    },
 
 });

@@ -15,7 +15,9 @@ class home extends React.Component {
         const sa = homeC.splashActive;
         return (
             <View style={[homePageS.topArea, { display: sa ? 'none' : 'flex' }]}>
-
+                <Text style={homePageS.topTxt}>LoremCillum pariatur laborum aliquip </Text>
+                <Text style={homePageS.topTxt}>LoremCillum pariatur laborum aliquip </Text>
+                <Text style={homePageS.topTxt}>LoremCillum pariatur laborum aliquip </Text>
             </View>
         );
     }
@@ -23,15 +25,17 @@ class home extends React.Component {
     render() {
         const sa = homeC.splashActive;
         return (
-            <View style={ [homePageS.C,sa && homePageS.C2]}>
-                
+            <View style={[homePageS.C, sa && homePageS.C2]}>
+
+                {this.topArea()}
+
                 <View style={!sa && homePageS.logoC}>
                     <Resim
                         source={require('../../assets/sub_logo.png')}
                         height={phoneH.W(sa ? 60 : 20)}
                     />
                 </View>
-                {this.topArea()}
+
             </View>
         );
     }
