@@ -4,6 +4,8 @@ import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { observer } from 'mobx-react';
 import home from './home';
+import temaH from '../helps/temaH';
+import homeC from '../controls/homeC';
 
 const Stack = createStackNavigator();
 
@@ -22,10 +24,13 @@ class App extends React.Component {
     render() {
         return (
             <>
+                <StatusBar
+                    backgroundColor={homeC.splashActive ? 'transparent' : temaH.renkler.r2}
+                    barStyle={'dark-content'} />
                 {this.navigasyon()}
             </>
         );
     }
 }
 
-export default App;
+export default observer(App);
