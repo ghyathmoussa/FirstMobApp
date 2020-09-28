@@ -53,4 +53,5 @@ export const homePageS = StyleSheet.create({
     companyTxt:{
         marginLeft:phoneH.W(3)
     },
+    
 });

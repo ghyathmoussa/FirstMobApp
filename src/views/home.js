@@ -51,7 +51,10 @@ class home extends React.Component {
                         height={phoneH.H(20)}
                     />
                 </TouchableOpacity>
-                <Text style={homePageS.companyTxt}>lorNisi incididunt in occaecat officia esse labore ullamco sint dolore.</Text>
+                <View>
+                    <Text style={homePageS.companyTxt}>lorNisi incididunt in occaecat officia esse labore ullamco sint dolore.</Text>
+                    <Text style={homePageS.companyTxt}>Discreption</Text>
+                </View>
             </View>
         );
     }
