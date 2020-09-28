@@ -51,7 +51,8 @@ export const homePageS = StyleSheet.create({
         flexDirection:'row'
     },
     companyTxt:{
-        marginLeft:phoneH.W(3)
+        marginLeft:phoneH.W(3),
+        color:'#fff'
     },
     
 });

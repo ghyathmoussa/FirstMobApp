@@ -5,6 +5,7 @@ import Resim from '../components/Resim'
 import homeC from '../controls/homeC';
 import phoneH from '../helps/phoneH';
 import { homePageS } from './style';
+import {View as ViewA,TouchableOpacity as TouchableOpacityA } from 'react-native-animatable';
 
 class home extends React.Component {
 
@@ -28,13 +29,13 @@ class home extends React.Component {
 
             <SafeAreaView style={homePageS.safArea}>
                 <ScrollView>
-                    <View style={homePageS.companiesC}>
+                    <ViewA style={homePageS.companiesC} animation={'zoomIn'}>
                         {this.company()}
                         {this.company()}
                         {this.company()}
                         {this.company()}
 
-                    </View>
+                    </ViewA>
                 </ScrollView>
             </SafeAreaView>
         );
@@ -54,6 +55,11 @@ class home extends React.Component {
                 <View>
                     <Text style={homePageS.companyTxt}>lorNisi incididunt in occaecat officia esse labore ullamco sint dolore.</Text>
                     <Text style={homePageS.companyTxt}>Discreption</Text>
+                    <View>
+                        <TouchableOpacity>
+
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
         );
