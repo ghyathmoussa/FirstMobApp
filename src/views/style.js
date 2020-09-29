@@ -73,3 +73,7 @@ export const homePageS = StyleSheet.create({
     },
     
 });
+
+export const loginS = StyleSheet.create({
+    
+}); 
