@@ -36,7 +36,7 @@ class home extends React.Component {
                         {this.company()}
                         {this.company()}
                         {this.company()}
-
+                        {this.company()}
                     </ViewA>
                 </ScrollView>
             </SafeAreaView>
@@ -60,33 +60,46 @@ class home extends React.Component {
                     </TouchableOpacity>
                     <Text style={homePageS.companyTxt}>Discreption</Text>
                     <View style={homePageS.notBtnC}>
-                            <Ikon 
+                        <View style={homePageS.icon}>
+                            <Ikon
                                 is={'Ionicons'}
                                 i={'location-outline'}
                                 c={temaH.renkler.r1}
                                 s={24}
                                 golgeyok
-                            /><Ikon 
-                            is={'FontAwesome'}
-                            i={'newspaper-o'}
-                            c={temaH.renkler.r1}
-                            s={24}
-                            golgeyok
-                        />
-                        <Ikon 
+                            />
+                            <Text style={homePageS.txtBtn}>Istanbul</Text>
+                        </View>
+                        <View style={homePageS.icon}>
+                            <Ikon
+                                is={'FontAwesome'}
+                                i={'newspaper-o'}
+                                c={temaH.renkler.r1}
+                                s={24}
+                                golgeyok
+                            />
+                            <Text style={homePageS.txtBtn}>News</Text>
+                        </View>
+                        <View style={homePageS.icon}>
+                            <Ikon
                                 is={'SimpleLineIcons'}
                                 i={'like'}
                                 c={temaH.renkler.r1}
                                 s={24}
                                 golgeyok
                             />
-                            <Ikon 
+                            <Text style={homePageS.txtBtn}>25</Text>
+                        </View>
+                        <View style={homePageS.icon}>
+                            <Ikon
                                 is={'SimpleLineIcons'}
                                 i={'dislike'}
                                 c={temaH.renkler.r1}
                                 s={24}
                                 golgeyok
                             />
+                            <Text style={homePageS.txtBtn}>1</Text>
+                        </View>
                     </View>
                 </View>
             </View>

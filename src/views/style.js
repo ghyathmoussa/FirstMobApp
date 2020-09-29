@@ -54,5 +54,22 @@ export const homePageS = StyleSheet.create({
         marginLeft:phoneH.W(3),
         color:'#fff'
     },
+    notBtnC:{
+        flexDirection:'row',
+        marginLeft:phoneH.W(2),
+        justifyContent:'center',
+        alignItems:'center',
+        marginTop:phoneH.W(2)
+    },
+    icon:{
+        paddingRight:phoneH.W(6),
+        marginRight:phoneH.W(3),
+        justifyContent:'center',
+        alignItems:'center',
+        textAlign:'center'
+    },
+    txtBtn:{
+        color:temaH.renkler.r1
+    },
     
 });
