@@ -5,7 +5,9 @@ import Resim from '../components/Resim'
 import homeC from '../controls/homeC';
 import phoneH from '../helps/phoneH';
 import { homePageS } from './style';
-import {View as ViewA,TouchableOpacity as TouchableOpacityA } from 'react-native-animatable';
+import { View as ViewA } from 'react-native-animatable';
+import Ikon from '../components/Ikon';
+import temaH from '../helps/temaH';
 
 class home extends React.Component {
 
@@ -53,12 +55,38 @@ class home extends React.Component {
                     />
                 </TouchableOpacity>
                 <View>
-                    <Text style={homePageS.companyTxt}>lorNisi incididunt in occaecat officia esse labore ullamco sint dolore.</Text>
+                    <TouchableOpacity>
+                        <Text style={homePageS.companyTxt}>lorNisi incididunt in occaecat officia</Text>
+                    </TouchableOpacity>
                     <Text style={homePageS.companyTxt}>Discreption</Text>
-                    <View>
-                        <TouchableOpacity>
-
-                        </TouchableOpacity>
+                    <View style={homePageS.notBtnC}>
+                            <Ikon 
+                                is={'Ionicons'}
+                                i={'location-outline'}
+                                c={temaH.renkler.r1}
+                                s={24}
+                                golgeyok
+                            /><Ikon 
+                            is={'FontAwesome'}
+                            i={'newspaper-o'}
+                            c={temaH.renkler.r1}
+                            s={24}
+                            golgeyok
+                        />
+                        <Ikon 
+                                is={'SimpleLineIcons'}
+                                i={'like'}
+                                c={temaH.renkler.r1}
+                                s={24}
+                                golgeyok
+                            />
+                            <Ikon 
+                                is={'SimpleLineIcons'}
+                                i={'dislike'}
+                                c={temaH.renkler.r1}
+                                s={24}
+                                golgeyok
+                            />
                     </View>
                 </View>
             </View>
