@@ -91,7 +91,8 @@ export const loginS = StyleSheet.create({
     inputB:{
         left:phoneH.W(5),
         width:phoneH.W(90),
-        marginBottom:phoneH.W(3)
+        marginBottom:phoneH.W(3),
+        borderRadius:500
     },
     inputSocialC:{
         flexDirection:'row',
@@ -101,6 +102,5 @@ export const loginS = StyleSheet.create({
     },
     inputSocial:{
         width:phoneH.W(45),
-
     }
 }); 

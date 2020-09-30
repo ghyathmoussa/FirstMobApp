@@ -1,13 +1,13 @@
 import { observer } from 'mobx-react';
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, ScrollView } from 'react-native';
 import logInC from '../controls/logInC';
 import Resim from '../components/Resim';
 import { loginS } from './style';
 import phoneH from '../helps/phoneH';
 import { Input, Button, SocialIcon, Icon } from 'react-native-elements';
 import Ikon from '../components/Ikon';
-
+import temaH from '../helps/temaH';
 
 class LogIn extends React.Component {
     componentDidMount = logInC.cDMount;
@@ -16,44 +16,56 @@ class LogIn extends React.Component {
 
     render() {
         sa = logInC.splashActive;
+        register = logInC.registerBtn;
+        durum = logInC.durum;
         return (
             <>
                 <View style={!sa && loginS.logInSplash}>
                     <Resim
                         source={require('../../assets/sub_logo.png')}
-                        height={phoneH.W(sa ? 60 : 40)}
+                        height={phoneH.W(sa ? 60 : 30)}
                     />
                 </View>
                 <View style={loginS.formC}>
-                    <View style={loginS.input}>
-                        <Input
-                            keyboardType={'email-address'}
-                            placeholder={'Email'}
-                            leftIcon={<Ikon is={'MaterialCommunityIcons'} i={'email-open'} c={'black'} />}
+                    <ScrollView showsVerticalScrollIndicator={false}>
+                        <View style={loginS.input}>
 
-                        />
-                        <Input
-                            keyboardType={'email-address'}
-                            placeholder={'Email'}
-                            leftIcon={<Ikon is={'MaterialCommunityIcons'} i={'email-open'} c={'black'} />}
+                            <Input
+                                keyboardType={'email-address'}
+                                placeholder={'Email'}
+                                leftIcon={<Ikon is={'MaterialCommunityIcons'} i={'email-open'} c={'black'} />}
 
-                        />
-                        <Input
-                            autoCompleteType={'password'}
-                            placeholder={'Password'}
-                            keyboardType={'number-pad'}
-                            leftIcon={<Ikon is={'MaterialCommunityIcons'} i={'form-textbox-password'} c={'black'} />}
+                            />
+                            { logInC.durum == 2 && <Input
 
-                        />
-                    </View>
+                                keyboardType={'email-address'}
+                                placeholder={'Email'}
+                                leftIcon={<Ikon is={'MaterialCommunityIcons'} i={'email-open'} c={'black'} />}
+
+
+                            />}
+                            <Input
+                                autoCompleteType={'password'}
+                                placeholder={'Password'}
+                                keyboardType={'number-pad'}
+                                leftIcon={<Ikon is={'MaterialCommunityIcons'} i={'form-textbox-password'} c={'black'} />}
+
+
+                            />
+
+                        </View>
+                    </ScrollView>
                     <View style={loginS.inputB}>
                         <Button
-                            title='Sign In'
+                            title= {durum === 1 ? 'Sihn In' : 'Register'}
                             type='solid'
+                            buttonStyle={{ borderRadius: 60, backgroundColor: temaH.renkler.r2 }}
+                            raised
                         />
                         <Button
                             title='If you do not have an acoount Register now'
                             type='clear'
+                            onPress={logInC.register}
                         />
                     </View>
 
