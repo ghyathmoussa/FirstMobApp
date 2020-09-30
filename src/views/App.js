@@ -7,6 +7,7 @@ import home from './home';
 import temaH from '../helps/temaH';
 import homeC from '../controls/homeC';
 import phoneH from '../helps/phoneH';
+import LogIn from './logIn';
 
 const Stack = createStackNavigator();
 
@@ -16,7 +17,7 @@ class App extends React.Component {
         return (
             <NavigationContainer>
                 <Stack.Navigator screenOptions={{ headerShown: false }}>
-                    <Stack.Screen name={'Home'} component={home} />
+                    <Stack.Screen name={'Log In'} component={LogIn} />
                 </Stack.Navigator>
             </NavigationContainer>
         );

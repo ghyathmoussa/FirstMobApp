@@ -75,5 +75,32 @@ export const homePageS = StyleSheet.create({
 });
 
 export const loginS = StyleSheet.create({
-    
+    logInSplash:{
+        justifyContent:'center',
+        alignItems:'center',
+        top:phoneH.W(15)
+    },
+    formC:{
+        marginTop:phoneH.W(20)
+    },
+    input:{
+        justifyContent:'center',
+        alignItems:'center',
+        width:phoneH.W(100)
+    },
+    inputB:{
+        left:phoneH.W(5),
+        width:phoneH.W(90),
+        marginBottom:phoneH.W(3)
+    },
+    inputSocialC:{
+        flexDirection:'row',
+        justifyContent:'center',
+        alignItems:'center',
+        marginTop:phoneH.W(3)
+    },
+    inputSocial:{
+        width:phoneH.W(45),
+
+    }
 }); 
