@@ -12,6 +12,10 @@ class homeC {
     cDWUnmount = () => { //closing app
 
     }
+
+    x = () => {
+        setTimeout(() => console.log('hello'),2000);
+    }
 }
 
 decorate(

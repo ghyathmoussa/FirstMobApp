@@ -1,4 +1,6 @@
 import { observable, action, decorate } from 'mobx';
+import {keyboard} from 'react-native';
+import phoneH from '../helps/phoneH';
 
 class logInC {
     splashAktive = true;

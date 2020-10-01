@@ -1,6 +1,7 @@
 import { observer } from 'mobx-react';
 import React from 'react';
 import { Text, View, ScrollView } from 'react-native';
+// import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import logInC from '../controls/logInC';
 import Resim from '../components/Resim';
 import { loginS } from './style';
@@ -27,9 +28,8 @@ class LogIn extends React.Component {
                     />
                 </View>
                 <View style={loginS.formC}>
-                    <ScrollView showsVerticalScrollIndicator={false}>
+                    <ScrollView>
                         <View style={loginS.input}>
-
                             <Input
                                 keyboardType={'email-address'}
                                 placeholder={'Email'}
