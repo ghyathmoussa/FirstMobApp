@@ -91,16 +91,16 @@ export const loginS = StyleSheet.create({
     inputB:{
         left:phoneH.W(5),
         width:phoneH.W(90),
-        marginBottom:phoneH.W(3),
+        marginBottom:phoneH.W(1),
         borderRadius:500
     },
     inputSocialC:{
         flexDirection:'row',
         justifyContent:'center',
         alignItems:'center',
-        marginTop:phoneH.W(3)
+        marginTop:phoneH.W(1)
     },
     inputSocial:{
         width:phoneH.W(45),
     }
-}); 
+});

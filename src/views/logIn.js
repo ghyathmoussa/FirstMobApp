@@ -36,11 +36,11 @@ class LogIn extends React.Component {
                                 leftIcon={<Ikon is={'MaterialCommunityIcons'} i={'email-open'} c={'black'} />}
 
                             />
-                            { logInC.durum == 2 && <Input
+                            {logInC.durum == 2 && <Input
 
                                 keyboardType={'email-address'}
-                                placeholder={'Email'}
-                                leftIcon={<Ikon is={'MaterialCommunityIcons'} i={'email-open'} c={'black'} />}
+                                placeholder={'Username'}
+                                leftIcon={<Ikon is={'FontAwesome5'} i={'user-alt'} c={'black'} />}
 
 
                             />}
@@ -49,21 +49,24 @@ class LogIn extends React.Component {
                                 placeholder={'Password'}
                                 keyboardType={'number-pad'}
                                 leftIcon={<Ikon is={'MaterialCommunityIcons'} i={'form-textbox-password'} c={'black'} />}
-
-
                             />
-
+                            {logInC.durum == 2 && <Input
+                                autoCompleteType={'password'}
+                                placeholder={'RePassword'}
+                                keyboardType={'number-pad'}
+                                leftIcon={<Ikon is={'MaterialCommunityIcons'} i={'form-textbox-password'} c={'black'} />}
+                            />}
                         </View>
                     </ScrollView>
                     <View style={loginS.inputB}>
                         <Button
-                            title= {durum === 1 ? 'Sihn In' : 'Register'}
+                            title={durum === 1 ? 'Sign In' : 'Register'}
                             type='solid'
                             buttonStyle={{ borderRadius: 60, backgroundColor: temaH.renkler.r2 }}
                             raised
                         />
                         <Button
-                            title='If you do not have an acoount Register now'
+                            title={logInC.durum === 1 ? 'If you do not have an acoount Register now' : 'If have an acoount Login now'}
                             type='clear'
                             onPress={logInC.register}
                         />
