@@ -73,7 +73,7 @@ class LogIn extends React.Component {
                     </View>
 
 
-                    <View style={loginS.inputSocialC}>
+                    {logInC.durum === 1 && <View style={loginS.inputSocialC}>
                         <SocialIcon
                             title='Sign In With Twitter'
                             button
@@ -86,7 +86,7 @@ class LogIn extends React.Component {
                             type='facebook'
                             style={loginS.inputSocial}
                         />
-                    </View>
+                    </View>}
                 </View>
             </>
         );
