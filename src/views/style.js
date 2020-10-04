@@ -94,6 +94,17 @@ export const loginS = StyleSheet.create({
         width:phoneH.w,
         marginTop:phoneH.W(1)
     },
+    signInBtn:{
+        width:phoneH.W(90),
+        borderRadius:60,
+        marginLeft:phoneH.W(5),
+        backgroundColor:temaH.renkler.r2
+    },
+    signInBtn_1:{
+        justifyContent:'center',
+        alignItems:'center',
+        backgroundColor:temaH.renkler.r2
+    }
 });
 
 export const footerS = StyleSheet.create({

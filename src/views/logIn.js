@@ -69,6 +69,8 @@ class LogIn extends React.Component {
                 <Button
                     type={'solid'}
                     title={durum === 1 ? 'Sign In' : 'Register'}
+                    containerStyle={loginS.signInBtn}
+                    buttonStyle={loginS.signInBtn_1}
                 />
                 <Button
                     type={'clear'}
