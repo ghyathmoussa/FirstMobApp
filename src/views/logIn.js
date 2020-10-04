@@ -2,13 +2,14 @@ import { observer } from 'mobx-react';
 import React from 'react';
 import { Text, View, ScrollView } from 'react-native';
 // import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import logInC from '../controls/logInC';
+import logInC from '../controllers/logInC';
 import Resim from '../components/Resim';
 import { loginS } from './style';
-import phoneH from '../helps/phoneH';
+import phoneH from '../helpers/phoneH';
 import { Input, Button, SocialIcon, Icon } from 'react-native-elements';
 import Ikon from '../components/Ikon';
-import temaH from '../helps/temaH';
+import temaH from '../helpers/temaH';
+import splashC from '../controllers/splashC';
 
 class LogIn extends React.Component {
     componentDidMount = logInC.cDMount;
@@ -16,79 +17,81 @@ class LogIn extends React.Component {
     componentWillUnmount = logInC.cWUnmount;
 
     render() {
-        sa = logInC.splashActive;
-        register = logInC.registerBtn;
-        durum = logInC.durum;
+        const durum = splashC.durum;
         return (
-            <>
-                <View style={!sa && loginS.logInSplash}>
-                    <Resim
-                        source={require('../../assets/sub_logo.png')}
-                        height={phoneH.W(sa ? 60 : 30)}
+            <View style={[loginS.C, durum === 2 && phoneH.klavye.durum && { flex: 1 }]}>
+                <ScrollView showsVerticalScrollIndicator={false}>
+                    <Input
+                        placeholder={'E-mail'}
+                        leftIcon={<Ikon is={'MaterialCommunityIcons'} i={'email-open'} c={'black'} />}
+                        secureTextEntry={true}
+                        keyboardType={'email-address'}
+                        maxLength={60}
                     />
-                </View>
-                <View style={loginS.formC}>
-                    <ScrollView>
-                        <View style={loginS.input}>
-                            <Input
-                                keyboardType={'email-address'}
-                                placeholder={'Email'}
-                                leftIcon={<Ikon is={'MaterialCommunityIcons'} i={'email-open'} c={'black'} />}
-
-                            />
-                            {logInC.durum == 2 && <Input
-
-                                keyboardType={'email-address'}
-                                placeholder={'Username'}
-                                leftIcon={<Ikon is={'FontAwesome5'} i={'user-alt'} c={'black'} />}
-
-
-                            />}
-                            <Input
-                                autoCompleteType={'password'}
-                                placeholder={'Password'}
-                                keyboardType={'number-pad'}
-                                leftIcon={<Ikon is={'MaterialCommunityIcons'} i={'form-textbox-password'} c={'black'} />}
-                            />
-                            {logInC.durum == 2 && <Input
-                                autoCompleteType={'password'}
-                                placeholder={'RePassword'}
-                                keyboardType={'number-pad'}
-                                leftIcon={<Ikon is={'MaterialCommunityIcons'} i={'form-textbox-password'} c={'black'} />}
-                            />}
-                        </View>
-                    </ScrollView>
-                    <View style={loginS.inputB}>
-                        <Button
-                            title={durum === 1 ? 'Sign In' : 'Register'}
-                            type='solid'
-                            buttonStyle={{ borderRadius: 60, backgroundColor: temaH.renkler.r2 }}
-                            raised
+                    {
+                        durum === 2 &&
+                        <Input
+                            placeholder={'Full Name'}
+                            leftIcon={<Ikon is={'MaterialCommunityIcons'} i={'account'} c={'black'} />}
+                            secureTextEntry={true}
+                            maxLength={50}
                         />
-                        <Button
-                            title={logInC.durum === 1 ? 'If you do not have an acoount Register now' : 'If have an acoount Login now'}
-                            type='clear'
-                            onPress={logInC.register}
+                    }
+                    {
+                        durum === 2 &&
+                        <Input
+                            placeholder={'Username'}
+                            leftIcon={<Ikon is={'MaterialCommunityIcons'} i={'account'} c={'black'} />}
+                            secureTextEntry={true}
+                            maxLength={50}
                         />
-                    </View>
+                    }
+                    <Input
+                        placeholder={'Password'}
+                        leftIcon={<Ikon is={'MaterialCommunityIcons'} i={'form-textbox-password'} c={'black'} />}
+                        secureTextEntry={true}
+                        keyboardType={'email-address'}
+                        maxLength={60}
+                    />
+                    {
+                        durum === 2 &&
+                        <Input
+                            placeholder={'RePassword'}
+                            leftIcon={<Ikon is={'MaterialCommunityIcons'} i={'form-textbox-password'} c={'black'} />}
+                            secureTextEntry={true}
+                            keyboardType={'email-address'}
+                            maxLength={60}
+                        />
+                    }
 
+                </ScrollView>
 
-                    {logInC.durum === 1 && <View style={loginS.inputSocialC}>
-                        <SocialIcon
-                            title='Sign In With Twitter'
-                            button
-                            type='twitter'
-                            style={loginS.inputSocial}
-                        />
-                        <SocialIcon
-                            title='Sign In With Facebook'
-                            button
-                            type='facebook'
-                            style={loginS.inputSocial}
-                        />
-                    </View>}
-                </View>
-            </>
+                <Button
+                    type={'solid'}
+                    title={durum === 1 ? 'Sign In' : 'Register'}
+                />
+                <Button
+                    type={'clear'}
+                    title={durum === 1 ? 'If you do not have an account Register now' : 'If you have an account Login now'}
+                    onPress={() => logInC.register()}
+                />
+                {
+                    durum != 2 &&
+                    <SocialIcon
+                        title='Sign In With Facebook'
+                        button
+                        type='facebook'
+                    />
+                }
+                {
+                    durum != 2 &&
+                    <SocialIcon
+                        title='Sign In With Twitter'
+                        button
+                        type='twitter'
+                    />
+                }
+            </View>
         );
     }
 

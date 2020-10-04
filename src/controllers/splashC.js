@@ -1,19 +1,21 @@
 import { observable, action, decorate } from 'mobx';
 import { LayoutAnimation, Keyboard } from 'react-native';
-import logInC from './logInC';
+import phoneH from '../helpers/phoneH';
+
 
 class splashC {
-    cDMount = async () => {
-        Keyboard.addListener('keyboardDidShow', tlfnH.klavyeAcildi);
-        Keyboard.addListener('keyboardDidHide', tlfnH.klavyeKapandi);
+    cDMount =  () => {
+        Keyboard.addListener('keyboardDidShow', phoneH.klavyeAcildi);
+        Keyboard.addListener('keyboardDidHide', phoneH.klavyeKapandi);
 
-        const x = await strgH.getirOturumBilgileri();
-        if (x && x.oturumDurumu === 'acik') {
-            logInC.set('email', x.email);
-            logInC.set('sifre', x.sifre);
-            await logInC.oturumAc();
-        }
-        else setTimeout(() => this.durum = 1, 1000);
+        // const x = await strgH.getirOturumBilgileri();
+        // if (x && x.oturumDurumu === 'acik') {
+        //     logInC.set('email', x.email);
+        //     logInC.set('sifre', x.sifre);
+        //     await logInC.oturumAc();
+        // // }
+        // else 
+        setTimeout(() => this.durum = 1, 2000);
     }
     cDUpdate = () => { LayoutAnimation.easeInEaseOut(); }
     cWUnmount = () => { }

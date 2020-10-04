@@ -1,12 +1,10 @@
 import { observable, action, decorate } from 'mobx';
-import {keyboard} from 'react-native';
-import phoneH from '../helpers/phoneH';
+import splashC from './splashC';
+
 
 class logInC {
-    splashAktive = true;
-    registerBtn = true;
     cDMount = () => {
-        setTimeout(() => this.splashActive = false, 2000);
+
     }
     cDUpdate = () => {
         //LayoutAnimation.easeInEaseOut();
@@ -15,7 +13,9 @@ class logInC {
 
     set = (k, v) => this[k] = v;
 
-    register = () => {this.set('durum',this.durum == 1 ? 2 : 1)}
+    register = () => {
+        splashC.set('durum', splashC.durum === 1 ? 2 : 1);
+    }
 }
 
 
@@ -25,12 +25,8 @@ decorate(
     {
         cDMount: observable,
         cDUpdate: observable,
-        registerBtn: observable,
-        splashActive: observable,
-        register: action,
-        set:action,
-
-
+        set: action,
+        register: action
     }
 
 );

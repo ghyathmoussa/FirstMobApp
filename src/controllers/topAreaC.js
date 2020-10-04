@@ -2,7 +2,7 @@ import { observable, action, decorate } from 'mobx';
 import { LayoutAnimation, } from 'react-native';
 
 class topAreaC {
-    cDMount = async () => {
+    cDMount =  () => {
         
     }
     cDUpdate = () => { LayoutAnimation.easeInEaseOut(); }

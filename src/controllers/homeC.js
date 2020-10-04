@@ -2,19 +2,16 @@ import { observable, action, decorate } from 'mobx';
 import { LayoutAnimation } from 'react-native';
 
 class homeC {
-    splashActive = true; // true:show splash, false:close splash
     cDMount = () => { //startinng app
-        setTimeout(() =>  this.splashActive = false, 2000 );
+        
     }
     cDUpdate = () => { // updating app
+        // console.count('anasayfaC_cDUpdate');
+        // console.timeEnd('Anasayfa_update');
         LayoutAnimation.easeInEaseOut();
     }
     cDWUnmount = () => { //closing app
 
-    }
-
-    x = () => {
-        setTimeout(() => console.log('hello'),2000);
     }
 }
 
@@ -24,8 +21,7 @@ decorate(
         splashActive: observable,
         cDMount: action,
         cDUpdate: action,
-        cDWUnmount: action
-
+        cDWUnmount: action,
     }
 );
 

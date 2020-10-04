@@ -1,13 +1,12 @@
 import { observer } from 'mobx-react';
 import React from 'react';
-import { Text, View, SafeAreaView, ScrollView, Image, TouchableOpacity } from 'react-native';
-import Resim from '../components/Resim'
-import homeC from '../controls/homeC';
-import phoneH from '../helps/phoneH';
+import { View } from 'react-native';
+import homeC from '../controllers/homeC';
 import { homePageS } from './style';
-import { View as ViewA } from 'react-native-animatable';
-import Ikon from '../components/Ikon';
-import temaH from '../helps/temaH';
+import splashC from '../controllers/splashC';
+import Splash from './splash';
+import TopArea from './topArea';
+import Companies from './company';
 
 class home extends React.Component {
 
@@ -15,112 +14,22 @@ class home extends React.Component {
     componentDidUpdate = homeC.cDUpdate;// Updating app 
     componentWillUnmount = homeC.cDWUnmount; // app close
 
-    topArea() {
-        const sa = homeC.splashActive;
-        return (
-            <View style={[homePageS.topArea, { display: sa ? 'none' : 'flex' }]}>
-                <Text style={homePageS.topTxt}>LoremCillum pariatur laborum aliquip </Text>
-                <Text style={homePageS.topTxt}>LoremCillum pariatur laborum aliquip </Text>
-                <Text style={homePageS.topTxt}>LoremCillum pariatur laborum aliquip </Text>
-            </View>
-        );
-    }
-
-    companies() {
-        return (
-
-            <SafeAreaView style={homePageS.safArea}>
-                <ScrollView>
-                    <ViewA style={homePageS.companiesC} animation={'zoomIn'}>
-                        {this.company()}
-                        {this.company()}
-                        {this.company()}
-                        {this.company()}
-                        {this.company()}
-                    </ViewA>
-                </ScrollView>
-            </SafeAreaView>
-        );
-    }
-
-    company() {
-        return (
-            <View style={homePageS.company}>
-                <TouchableOpacity>
-                    <Image
-                        style={homePageS.image}
-                        source={require('../../assets/20200111_174739.jpg')}
-                        width={phoneH.W(20)}
-                        height={phoneH.H(20)}
-                    />
-                </TouchableOpacity>
-                <View>
-                    <TouchableOpacity>
-                        <Text style={homePageS.companyTxt}>lorNisi incididunt in occaecat officia</Text>
-                    </TouchableOpacity>
-                    <Text style={homePageS.companyTxt}>Discreption</Text>
-                    <View style={homePageS.notBtnC}>
-                        <View style={homePageS.icon}>
-                            <Ikon
-                                is={'Ionicons'}
-                                i={'location-outline'}
-                                c={temaH.renkler.r1}
-                                s={24}
-                                golgeyok
-                            />
-                            <Text style={homePageS.txtBtn}>Istanbul</Text>
-                        </View>
-                        <View style={homePageS.icon}>
-                            <Ikon
-                                is={'FontAwesome'}
-                                i={'newspaper-o'}
-                                c={temaH.renkler.r1}
-                                s={24}
-                                golgeyok
-                            />
-                            <Text style={homePageS.txtBtn}>News</Text>
-                        </View>
-                        <View style={homePageS.icon}>
-                            <Ikon
-                                is={'SimpleLineIcons'}
-                                i={'like'}
-                                c={temaH.renkler.r1}
-                                s={24}
-                                golgeyok
-                            />
-                            <Text style={homePageS.txtBtn}>25</Text>
-                        </View>
-                        <View style={homePageS.icon}>
-                            <Ikon
-                                is={'SimpleLineIcons'}
-                                i={'dislike'}
-                                c={temaH.renkler.r1}
-                                s={24}
-                                golgeyok
-                            />
-                            <Text style={homePageS.txtBtn}>1</Text>
-                        </View>
-                    </View>
-                </View>
-            </View>
-        );
-    }
-
     render() {
-        const sa = homeC.splashActive;
+        const durum = splashC.durum;
         return (
-            <View style={[homePageS.C, sa && homePageS.C2]}>
+            <View style={[homePageS.C, durum && homePageS.C2]}>
 
-                {!sa && this.topArea()}
+                {
+                    durum === 3 &&
+                    <>
+                        <TopArea />
 
-                {!sa && this.companies()}
-                <View style={!sa && homePageS.logoC}>
-                    <Resim
-                        source={require('../../assets/sub_logo.png')}
-                        height={phoneH.W(sa ? 60 : 20)}
-                    />
-                </View>
+                        <Companies />
+                    </>
+                }
 
+
+                <Splash />
             </View>
         );
     }
@@ -128,3 +37,13 @@ class home extends React.Component {
 }
 
 export default observer(home);
+
+/*
+<View style={!sa && homePageS.logoC}>
+    <Resim
+        source={require('../../assets/sub_logo.png')}
+        height={phoneH.W(sa ? 60 : 20)}
+    />
+</View>
+
+*/

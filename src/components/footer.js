@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, TouchableOpacity, Text } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import Ikon from './Ikon';
-import temaH from '../helps/temaH';
+import temaH from '../helpers/temaH'
 import { footerS } from '../views/style'
 
 const Footer = () => {

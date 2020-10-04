@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import { observer } from 'mobx-react';
-import {splashS as S} from './style';
+import {splashS} from './style';
 import Resim from '../components/Resim';
-import phoneH from '../helps/phoneH';
-import splashC from '../controls/splashC';
+import phoneH from '../helpers/phoneH';
+import splashC from '../controllers/splashC';
+import LogIn from './logIn';
 
 class Splash extends React.Component {
     componentDidMount = splashC.cDMount;
@@ -29,14 +30,14 @@ class Splash extends React.Component {
         return (
             <View
                 style={[
-                    S.K,
-                    durum === 3 && S.K2,
+                    splashS.C,
+                    durum === 3 && splashS.C1,
                     (durum === 1 || durum === 2) && phoneH.klavye.durum && { justifyContent: 'flex-end' }
                 ]}
             >
                 <TouchableOpacity>
                     <Resim
-                        source={require('../../assets/logo/logo.png')}
+                        source={require('../../assets/sub_logo.png')}
                         height={phoneH.W(logoH)}
                     />
                 </TouchableOpacity>
